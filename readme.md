@@ -6,9 +6,22 @@ Information such as disposition of friendly and hostile troops, enemy AA batteri
 
 ### Usage
 1. Go to The [release page](https://github.com/gronank/RotorheadToABRIS/releases) to get the latest version of the application
-2. Unpack the zip into your saved games/DCS directory (You should end up with a RotorheadsToABRIS folder in your DCS directory)
-3. Open the file \<DCS install directory\>/Mods/aircraft/Ka-50/Cockpit/Scripts/Devices_specs/ABRIS.lua
-4. Go to the line **default_path = get_terrain_related_data("ABRIS_data_path")** (line 42 as of writing) and replace it with **default_path = get_terrain_related_data("ABRIS_data_path") or lfs.writedir().."ExportToABRIS/"**
+2. Unpack the zip into your saved games/DCS directory (You should end up with a RotorheadsToABRIS folder in your DCS directory).
+
+Then do one of the following:
+
+* **Either:**
+
+  3. Open the file \<DCS install directory\>/Mods/aircraft/Ka-50/Cockpit/Scripts/Devices_specs/ABRIS.lua
+  4. Go to the line **default_path = get_terrain_related_data("ABRIS_data_path")** (line 42 as of writing) and replace it with **default_path = get_terrain_related_data("ABRIS_data_path") or lfs.writedir().."ExportToABRIS/"**
+  
+* **or:**
+
+  3. Download the provided **DCS ABRIS.lua.zip** file and extract it over your root DCS installation directory.
+      The **Mods** folder from the zip file should replace your game installation's Mods folder (same structure). This will replace ABRIS.lua for both the Black Shark 2 and 3.
+      
+**Then:**
+
 5. Run the ExportToABRIS.exe inside the newly unpacked folder by dragging and dropping a serverspec.json file onto the exe. A Database folder will appear. Running the application again updates the data available to ABRIS.
 
 ### Notes
