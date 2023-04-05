@@ -19,9 +19,14 @@ class ServerReader:
         features=[]
         for object in objects['features']:
             ptFtr=PointFeature()
-            ptFtr.description=object['properties']['description']
-            ptFtr.icon=object['properties'].get('icon')
             ptFtr.location=object['geometry']['coordinates']
-            ptFtr.properties=object['properties']
+            ptFtr.properties=object.get('properties')
+            if ptFtr.properties:
+            	ptFtr.description=ptFtr.properties.get('description')
+            	ptFtr.icon=ptFtr.properties.get('icon')
+            else:
+            	ptFtr.properties={'description' : "", 'icon' : ""}
+            	ptFtr.description=""
+            	ptFtr.icon=ptFtr.properties.get('icon')
             features.append(ptFtr)
         return features
